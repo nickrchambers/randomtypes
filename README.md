@@ -1,4 +1,4 @@
-<h1>The Shotgun Programming Language</h1>
+<h1>The Nowl Programming Language</h1>
 This is a simple programming language that aims to settle the debate between static and dynamic typing. Instead, it introduces the concept of random typing, where the type of a variable is changed (randomly) whenever it is accessed.
 <br/>
 The basic commands are:<br/>
