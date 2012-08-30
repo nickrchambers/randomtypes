@@ -2091,6 +2091,15 @@ void setVal(int val, symtab *t, int type) {
     }
 }
 
+symtab *findVar(char *name, symtab *t) {
+    if(t == NULL) return NULL;
+    if(strcmp(name, t->name) == 0) {
+        return t;
+    }
+    else if(t->next != NULL)
+        return findVar(name, t->next);
+    else return NULL;
+}
 
 int getType(char* name, symtab *t) {
     if(strcmp(name, t->name) == 0) {
@@ -2145,6 +2154,12 @@ void setVar(char *name, int val, symtab *t) {
 void copyVars(arglist *oldargs, symtab *old, arglist *newargs, symtab *new) {
     while(oldargs != NULL && newargs != NULL) {
         setVar(newargs->name, getVar(oldargs->name, old), new);
+        symtab *nvar = findVar(newargs->name, new), *ovar = findVar(oldargs->name, old);
+        if(nvar != NULL && ovar != NULL) {
+            nvar->ival = ovar->ival;
+            nvar->bval = ovar->bval;
+            nvar->cval = ovar->cval;
+        }
         oldargs = oldargs->next;
         newargs = newargs->next;
     }

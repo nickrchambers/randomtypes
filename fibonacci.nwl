@@ -1,0 +1,74 @@
+fun fib(n) {
+    loop {
+        t = n;
+        if(n:: == ::int) stop;
+    }
+    if(n < 3) return 1;
+
+    loop {
+        t = a;
+        if(a:: == ::int) stop;
+    }
+    a = 1;
+    loop {
+        t = b;
+        if(b:: == ::int) stop;
+    }
+    b = 1;
+    loop {
+        t = n;
+        if(n:: == ::int) stop;
+    }
+
+    do n times {
+        loop {
+            t = c;
+            if(c:: == ::int) stop;
+        }
+        loop {
+            t = b;
+            if(b:: == ::int) stop;
+        }
+	loop {
+            t = a;
+            if(a:: == ::int) stop;
+        }
+	c = b + a;
+        loop {
+            t = b;
+            if(b:: == ::int) stop;
+        }
+        loop {
+            t = a;
+            if(a:: == ::int) stop;
+        }
+	b = a;
+        loop {
+            t = c;
+            if(c:: == ::int) stop;
+        }
+        loop {
+            t = a;
+            if(a:: == ::int) stop;
+        }
+        a = c;
+    }
+    loop {
+        t = a;
+        if(a:: == ::int) stop;
+    }
+    return a;
+}
+
+fun main(z) {
+    loop {
+        t = x;
+        if(x:: == ::int) stop;
+    }
+    x = 30;
+    loop {
+        t = x;
+        if(x:: == ::int) stop;
+    }
+    show fib(x);
+}
