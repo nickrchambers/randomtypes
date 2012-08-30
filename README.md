@@ -39,3 +39,6 @@ Nowl is implemented using Flex and Bison, which should be available in most plac
 
 <h3>Running programs</h3>
 Programs can be run by executing ./lang &lt;src.nwl, if the program is in src.nwl. There are a few example programs in the repo.
+
+<h3>Coding style</h3>
+When multiple variables of certain types are needed, it seems tempting to use the above device separately for each variable. This is considered poor style as it adds to code bloat and unmaintainability. Instead, it is preferred to try to fix all variables' types at once. The difference is shown in fibonnaci.nwl and fibrecursive.nwl. fibrecursive.nwl also uses recursion, but the drastic difference in code size comes mainly from the use of good Nowl style.

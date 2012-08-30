@@ -1,0 +1,45 @@
+fun fib(n) {
+    loop {
+        t = n;
+        if(n:: == ::int) stop;
+    }
+    if(n < 3) return 1;
+    loop {
+        t = a;
+        t = n;
+        if((a:: == ::int)*(n:: == ::int)) {
+            stop;
+        }
+    }
+    a = n - 1;
+    loop {
+        t = b;
+        t = n;
+        if((b:: == ::int)*(n:: == ::int)) {
+            stop;
+        }
+    }
+    b = n - 2;
+    loop {
+        t = a;
+        t = b;
+        if((a:: == ::int) * (b:: == ::int)) {
+            stop;
+        }
+    }
+    return fib(a) + fib(b);
+}
+
+fun main(z) {
+    loop {
+        t = x;
+        if(x:: == ::int) stop;
+    }
+    x = 30;
+    loop {
+        t = x;
+        if(x:: == ::int) stop;
+    }
+    show fib(x);
+}
+
