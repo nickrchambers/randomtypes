@@ -30,4 +30,10 @@ This powerful method allows the user to practically forget about the fact that t
 <h3>Language points</h3>
 Variables can be used without being declared - they are automatically initialised to the default value (of their randomly chosen type). In a nod to Python, there is little variable scoping. Variables are local to functions, but blocks within functions are for control flow, not petty matters like variable scoping.
 <br/>
-Currently, 
+Currently, Nowl doesn't actually check types when performing operations - so it doesn't complain if you add a bool to an int, for example. However, this isn't really permitted, so users should avoid this. They can do so using the easy device above. <br/>
+
+<h3>Implementation</h3>
+Nowl is implemented using Flex and Bison, which should be available in most places. There are probably many errors in this hurried implementation - these are likely due to the difficulties of programming under the constraints of current systems' archaic typing rules.<br/>
+
+<h3>Running programs</h3>
+Programs can be run by executing ./lang &lt;src.nwl, if the program is in src.nwl. You can actually write programs that do stuff, and there are a few examples in the repo.
