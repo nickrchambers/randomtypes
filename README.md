@@ -32,6 +32,8 @@ Variables can be used without being declared - they are automatically initialise
 <br/>
 Currently, Nowl doesn't actually check types when performing operations - so it doesn't complain if you add a bool to an int, for example. However, this isn't really permitted, so users should avoid this. They can do so using the easy device above. <br/>
 
+<h3>Naming</h3>
+The name Nowl was, fittingly, chosen by using a random Markov model string generator. It'll do. <br/>
 <h3>Implementation</h3>
 Nowl is implemented using Flex and Bison, which should be available in most places. There are probably many errors in this hurried implementation - these are likely due to the difficulties of programming under the constraints of current systems' archaic typing rules.<br/>
 
