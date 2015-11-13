@@ -6,7 +6,7 @@
 #include <time.h>
 
 //int yydebug=1;
-    
+
 typedef struct cmd cmd;
 typedef struct cmdList cmdList;
 typedef struct symtab symtab;
@@ -271,12 +271,13 @@ int getVar(char *name, symtab *t) {
         return getVar(name, t->next);
     else {
         t->next = malloc(sizeof(symtab));
-        t->next->name = malloc(strlen(name));
-        strcpy(t->next->name, name);
+        t = t->next;
+        t->name = malloc(strlen(name));
+        strcpy(t->name, name);
         t->type = rand()%3;
         setVal(0, t, t->type);
         t->type = rand()%3;
-        t->next->next = NULL;
+        t->next = NULL;
         printf("Auto-initializing %s\n", name);
         return 0;
     }
@@ -291,12 +292,13 @@ void setVar(char *name, int val, symtab *t) {
         setVar(name, val, t->next);
     else {
         t->next = malloc(sizeof(symtab));
-        t->next->name = malloc(strlen(name));
+        t = t->next;
+        t->name = malloc(strlen(name));
         t->type = rand()%3;
-        strcpy(t->next->name, name);
+        strcpy(t->name, name);
         setVal(val, t, t->type);
-	t->type = rand()%3;
-        t->next->next = NULL;
+        t->type = rand()%3;
+        t->next = NULL;
     }
 }
 
@@ -315,14 +317,14 @@ void copyVars(arglist *oldargs, symtab *old, arglist *newargs, symtab *new) {
     if(oldargs!= NULL || newargs !=NULL)
         printf("Error! Not enough arguments!\n");
 }
-    
+
 int applyFun(char *name, arglist *args, symtab *table) {
     symtab newtab = {"zero", 0, 0, 0, 0, NULL};
     copyVars(args, table, getFunArgs(name, &functions), &newtab);
     int ret = executeList(getFunBody(name, &functions), &newtab);
     return ret;
 }
-    
+
 
 int evalExpr(exprn *e, symtab *table) {
     if(e==NULL) return 0;
@@ -368,18 +370,18 @@ retFlag=0; return retval; } break;
             case 'z': breakFlag = 1; return 0; break;
             case 'i': if(evalExpr(curr->exp, table)) { int ret = executeList(curr->cmnd, table); if(retFlag!=0) { breakFlag =0; retFlag = 0; return ret; } if(breakFlag!=0) { return 0; } }break;
             case 'e': evalExpr(curr->exp, table); break;
-            case 'r': {breakFlag = 1; retFlag = 1; retval = evalExpr(curr->exp, table); return retval;} break;
+            case 'r': {retval = evalExpr(curr->exp, table); breakFlag = 1; retFlag = 1; return retval;} break;
             default :
                 printf("Unsupported Op: %c\n", curr->type);
         }
-    
+
 
         if(tree == NULL || tree->rest == NULL) break;
         tree = tree->rest;
     }
-    return retval;  
+    return retval;
 }
-    
+
 main()
 { srand(time(NULL));
   yyparse();

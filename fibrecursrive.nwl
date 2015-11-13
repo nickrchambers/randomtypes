@@ -27,6 +27,7 @@ fun fib(n) {
             stop;
         }
     }
+
     return fib(a) + fib(b);
 }
 
@@ -35,7 +36,7 @@ fun main(z) {
         t = x;
         if(x:: == ::int) stop;
     }
-    x = 30;
+    x = 15;
     loop {
         t = x;
         if(x:: == ::int) stop;

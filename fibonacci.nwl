@@ -65,7 +65,7 @@ fun main(z) {
         t = x;
         if(x:: == ::int) stop;
     }
-    x = 30;
+    x = 5;
     loop {
         t = x;
         if(x:: == ::int) stop;
